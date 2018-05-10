@@ -1,5 +1,10 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<h1>Menu Tracker</h1>
+<p>Our restaurant is {{restaurant.name}}. We have been open for {{restaurant.yearsOpen}} years.</p>
+<p>Menu Tracker helps you see what dishes are available today.</p>
+<ul>
+  {{#each foods as |food|}}
+    <li>Let's eat some {{food.name}}. Currently available: {{food.isAvailable}}</li>
+  {{/each}}
+</ul>
+<hr>
+{{input value=restaurant.name}}
