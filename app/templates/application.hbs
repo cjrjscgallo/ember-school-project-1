@@ -1,10 +1,22 @@
 <h1>Menu Tracker</h1>
 <p>Our restaurant is {{restaurant.name}}. We have been open for {{restaurant.yearsOpen}} years.</p>
 <p>Menu Tracker helps you see what dishes are available today.</p>
+<p>We have {{menuLength}} menu items.</p>
+<p>Currently, {{availableItems.length}} are available.</p>
 <ul>
-  {{#each foods as |food|}}
-    <li>Let's eat some {{food.name}}. Currently available: {{food.isAvailable}}</li>
+  {{#each model as |food|}}
+    {{#if food.isAvailable}}
+      <li class="available">{{food.name}}<button {{action 'makeUnavailable' food}}>Make Unavailable</button></li>
+    {{else}}
+      <li class="not-available">{{food.name}}
+        <button {{action 'makeAvailable' food}}>Make Available</button>
+        <button {{action 'destroyItem' food}}>Remove</button>
+      </li>
+    {{/if}}
+
   {{/each}}
 </ul>
 <hr>
 {{input value=restaurant.name}}
+{{input value=newItem}}
+<button {{action 'saveNewItem'}}>Save</button>
