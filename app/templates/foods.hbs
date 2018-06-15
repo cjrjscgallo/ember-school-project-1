@@ -1,0 +1,18 @@
+<div class="flex-container">
+  <div class="flex-item">
+    <h1>Menu Tracker</h1>
+    <p>Welcome to {{restaurant.name}}. We have been open for {{restaurant.yearsOpen}} years.</p>
+    <p>Menu Tracker helps you see what dishes are available today.</p>
+    <p>We have {{menuLength}} menu items.</p>
+    <p>Currently, {{availableItems.length}} are available.</p>
+    {{#each model as |food|}}
+      {{food-item food=food}}
+    {{/each}}
+    <hr>
+    {{input value=newItem}}
+    <button {{action 'saveNewItem'}}>Save</button>
+  </div>
+  <div class="flex-item">
+    {{outlet}}
+  </div>
+</div>

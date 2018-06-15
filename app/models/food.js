@@ -2,5 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  isAvailable: DS.attr('boolean')
+  isAvailable: DS.attr('boolean'),
+  description: DS.attr('string'),
+  imageName: DS.attr('string')
 });

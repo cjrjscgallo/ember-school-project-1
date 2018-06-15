@@ -4,6 +4,9 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ember-school-project-1',
     environment,
+    rootURL: '/',
+    imageRootURL: '/public/ember-school-project-1/',
+    locationType: 'hash',
     firebase: {
       apiKey: "AIzaSyBtqWEmmK82LtoUKzWrfU7DDA0EGF9SfU4",
       authDomain: "menu-tracker-2ba64.firebaseapp.com",
@@ -12,8 +15,6 @@ module.exports = function(environment) {
       storageBucket: "menu-tracker-2ba64.appspot.com",
       messagingSenderId: "17772009850"
     },
-    rootURL: '/',
-    locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
