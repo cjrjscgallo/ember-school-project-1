@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'ember-school-project-1',
     environment,
     rootURL: '/',
-    imageRootURL: '/public/ember-school-project-1/',
+    imageRootURL: 'assets/images/',
     locationType: 'hash',
     firebase: {
       apiKey: "AIzaSyBtqWEmmK82LtoUKzWrfU7DDA0EGF9SfU4",
