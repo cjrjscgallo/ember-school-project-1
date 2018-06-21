@@ -6,7 +6,17 @@
     <p>We have {{menuLength}} menu items.</p>
     <p>Currently, {{availableItems.length}} are available.</p>
     {{#each model as |food|}}
-      {{food-item food=food}}
+      {{#collapsible-component as |isOpen component|}}
+        <div class="food-item {{if food.isAvailable '' 'not-available'}}">
+          <div class="title-bar" {{action 'toggleOpen' target=component}}>{{food.name}} <span class="pull-right">{{if isOpen 'v' '>'}}</span></div>
+          {{#if isOpen}}
+            {{icon-image food.imageName left=true}}
+            <div class="description"> {{food.description}}</div><br>
+            {{#link-to 'foods.food' food.id}}<button>Show Page</button>{{/link-to}}
+            <button {{action 'toggleAvailability' food}}>{{if food.isAvailable 'Make Unavailable' 'Make Available'}}</button>
+          {{/if}}
+        </div>
+      {{/collapsible-component}}
     {{/each}}
     <hr>
     {{input value=newItem}}

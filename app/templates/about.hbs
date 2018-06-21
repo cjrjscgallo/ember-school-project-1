@@ -1,2 +1,6 @@
 This is our about page!
-{{email-status}}
+
+{{#email-status as |word1 word2|}}
+  <p>This is only on the About page.</p>
+  {{word1}} {{word2}}
+{{/email-status}}

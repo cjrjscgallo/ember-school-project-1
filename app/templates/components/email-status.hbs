@@ -1,1 +1,9 @@
-<p>Email me at {{emailAddress}}</p>
+<div class="email-status">
+  <p>Email me at {{emailAddress}}</p>
+  {{yield 'Hello' 'World'}}
+  {{#if hasBlock}}
+    <p>Has a block component.</p>
+  {{else}}
+    <p>Does NOT have a block component.</p>
+  {{/if}}
+</div>

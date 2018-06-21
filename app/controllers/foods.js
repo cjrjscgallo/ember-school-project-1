@@ -18,6 +18,10 @@ export default Controller.extend({
         name: this.get('newItem')
       }).save();
       this.set('newItem', '');
+    },
+    toggleAvailability(food) {
+      food.toggleProperty('isAvailable');
+      food.save();
     }
   }
 });
