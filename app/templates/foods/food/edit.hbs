@@ -1,6 +1,20 @@
 <h2>Editing food...</h2>
-<p>Name: {{input value=model.name}}</p>
-<p>Description: {{textarea value=model.description class="medium-text-area"}}</p>
-<p>Image name: {{input value=model.imageName}}</p>
-<img src="{{imageRootURL}}{{model.imageName}}" class="img-icon">
+<p>Name: {{input value=model.food.name}}</p>
+<p>Description: {{textarea value=model.food.description class="medium-text-area"}}</p>
+<p>Image name: {{input value=model.food.imageName}}</p>
+{{icon-image model.food.imageName}}
+<br>
+{{#x-select value=model.food.course on-change=(action (mut model.food.course)) as |xs|}}
+  {{#xs.option value="Appetizer"}}Appetizer{{/xs.option}}
+  {{#xs.option value="Entree"}}Entree{{/xs.option}}
+  {{#xs.option value="Dessert"}}Dessert{{/xs.option}}
+  {{#xs.option value="Beverage"}}Beverage{{/xs.option}}
+{{/x-select}}
+<br><br>
+{{#x-select value=model.food.restaurant action="selectRestaurant" on-change=(action (mut model.food.restaurant)) as |xs|}}
+  {{#each model.restaurants as |restaurant|}}
+    {{#xs.option value=restaurant}}{{restaurant.name}}{{/xs.option}}
+  {{/each}}
+{{/x-select}}
+<br><br>
 <button {{action 'save'}}>Save</button>

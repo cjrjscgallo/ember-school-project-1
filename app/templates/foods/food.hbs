@@ -1,5 +1,5 @@
 <h1>{{model.name}}</h1>
 <p>{{model.description}}</p>
-<p>Served at the following locations: {{model.restaurant.name}}</p>
-{{link-to 'Edit this food' 'foods.food.edit' model}}
+<p>Served at {{model.restaurant.name}} as a {{model.course}}.</p>
+{{link-to 'Edit this food' 'foods.food.edit' model.id}}
 <button {{action 'destroyItem' model}}>Remove</button>
